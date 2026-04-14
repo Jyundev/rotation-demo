@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --max-w: 430px;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #f9f0f7;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+/* 모바일 앱 느낌 */
+.app-shell {
+  max-width: var(--max-w);
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: white;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 0 60px rgba(0,0,0,0.08);
+}
+
+/* 타이머 링 */
+.timer-ring {
+  stroke-dasharray: 283;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+/* 하트 버튼 */
+.heart-btn {
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.heart-btn:active {
+  transform: scale(1.3);
+}
+
+/* 스크롤바 숨김 */
+::-webkit-scrollbar {
+  display: none;
+}
