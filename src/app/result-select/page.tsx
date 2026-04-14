@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Trophy, Medal, Heart, ChevronRight, Star } from "lucide-react";
+import { Trophy, Medal, Heart, ChevronRight, Star, Mail } from "lucide-react";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import ProfileAvatar from "@/components/ProfileAvatar";
@@ -58,7 +58,9 @@ export default function ResultSelectPage() {
     return (
       <div className="min-h-dvh flex items-center justify-center bg-gradient-to-b from-pink-50 to-white">
         <div className="text-center animate-scaleIn">
-          <div className="text-5xl mb-4">💌</div>
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-400 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-pink-200">
+            <Mail size={30} className="text-white" />
+          </div>
           <p className="text-xl font-bold text-gray-900">선택지를 보냈어요!</p>
           <p className="text-gray-400 text-sm mt-1">결과 확인 중...</p>
         </div>

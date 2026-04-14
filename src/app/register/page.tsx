@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronRight, ChevronLeft, Check, Coffee, Smile } from "lucide-react";
+import { ChevronRight, ChevronLeft, Check, Coffee, Smile, Leaf, Milk, GlassWater, Citrus } from "lucide-react";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import ProgressDots from "@/components/ProgressDots";
@@ -170,7 +170,9 @@ export default function RegisterPage() {
                       : "bg-white border border-gray-200 text-gray-700"
                   }`}
                 >
-                  <span className="text-2xl">{drinkEmoji(d)}</span>
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${drink === d ? "bg-pink-100" : "bg-gray-100"}`}>
+                    <DrinkIcon name={d} size={18} className={drink === d ? "text-pink-500" : "text-gray-500"} />
+                  </div>
                   <span>{d}</span>
                   {drink === d && (
                     <Check size={16} className="ml-auto text-pink-500" />
@@ -200,14 +202,14 @@ export default function RegisterPage() {
   );
 }
 
-function drinkEmoji(d: string) {
-  const map: Record<string, string> = {
-    "아이스 아메리카노": "☕",
-    "카페라떼": "🥛",
-    "녹차 라떼": "🍵",
-    "콜드브루": "🧋",
-    "허브티": "🌿",
-    "오렌지 주스": "🍊",
+function DrinkIcon({ name, size, className }: { name: string; size: number; className?: string }) {
+  const map: Record<string, React.ReactNode> = {
+    "아이스 아메리카노": <Coffee size={size} className={className} />,
+    "카페라떼": <Milk size={size} className={className} />,
+    "녹차 라떼": <Leaf size={size} className={className} />,
+    "콜드브루": <Coffee size={size} className={className} />,
+    "허브티": <Leaf size={size} className={className} />,
+    "오렌지 주스": <Citrus size={size} className={className} />,
   };
-  return map[d] ?? "🥤";
+  return <>{map[name] ?? <GlassWater size={size} className={className} />}</>;
 }

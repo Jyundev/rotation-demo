@@ -9,6 +9,7 @@ import {
   Music2,
   ArrowRight,
   Bell,
+  PartyPopper,
 } from "lucide-react";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
@@ -176,7 +177,9 @@ export default function RotationPage() {
       {done && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-pink-500/90 animate-scaleIn">
           <div className="text-center text-white px-6">
-            <div className="text-5xl mb-4">🎊</div>
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-400 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-pink-200">
+              <PartyPopper size={30} className="text-white" />
+            </div>
             <p className="text-2xl font-bold mb-1">모든 만남 완료!</p>
             <p className="opacity-80 text-sm">결과 선택 페이지로 이동 중...</p>
           </div>
@@ -277,5 +280,5 @@ function InfoRow({
 }
 
 function ratingLabel(n: number) {
-  return ["", "별로예요", "그럭저럭", "괜찮아요!", "좋아요!", "완전 좋아요! ❤️"][n] ?? "";
+  return ["", "별로예요", "그럭저럭", "괜찮아요!", "좋아요!", "완전 좋아요!"][n] ?? "";
 }

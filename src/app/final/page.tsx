@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Heart, RefreshCw, Home, Send, Sparkles } from "lucide-react";
+import { Heart, RefreshCw, Home, Send, Sparkles, Mail, PartyPopper, HeartCrack, CheckCircle2 } from "lucide-react";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import ProfileAvatar from "@/components/ProfileAvatar";
@@ -40,7 +40,9 @@ export default function FinalPage() {
   if (state === "loading") {
     return (
       <div className="min-h-dvh flex flex-col items-center justify-center bg-gradient-to-b from-pink-50 to-white px-6">
-        <div className="animate-pulse2 text-6xl mb-6">💌</div>
+        <div className="animate-pulse2 w-20 h-20 rounded-3xl bg-gradient-to-br from-pink-400 to-rose-400 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-pink-200">
+          <Mail size={36} className="text-white" />
+        </div>
         <p className="text-xl font-bold text-gray-900 mb-2">매칭 결과 확인 중...</p>
         <p className="text-gray-400 text-sm text-center">
           상대방도 당신을 선택했는지<br />확인하고 있어요
@@ -62,14 +64,16 @@ export default function FinalPage() {
     return (
       <main className="min-h-dvh flex flex-col items-center bg-gradient-to-b from-pink-50 via-white to-purple-50 px-5 pt-16 pb-10">
         {/* Confetti-like decoration */}
-        <div className="text-5xl mb-4 animate-scaleIn">🎉</div>
+        <div className="animate-scaleIn w-20 h-20 rounded-3xl bg-gradient-to-br from-pink-500 to-rose-400 flex items-center justify-center mx-auto mb-4 shadow-xl shadow-pink-200">
+          <PartyPopper size={36} className="text-white" />
+        </div>
 
         <div className="animate-fadeIn text-center mb-8">
           <h1 className="text-3xl font-extrabold text-gray-900 mb-2">
             매칭 성공!
           </h1>
-          <p className="text-gray-500 text-sm">
-            서로 마음이 통했어요 ✨
+          <p className="text-gray-500 text-sm flex items-center justify-center gap-1">
+            서로 마음이 통했어요 <Sparkles size={14} className="text-pink-400" />
           </p>
         </div>
 
@@ -127,7 +131,9 @@ export default function FinalPage() {
   // Fail state
   return (
     <main className="min-h-dvh flex flex-col items-center bg-gradient-to-b from-gray-50 to-white px-5 pt-16 pb-10">
-      <div className="text-5xl mb-4 animate-scaleIn">😢</div>
+      <div className="animate-scaleIn w-20 h-20 rounded-3xl bg-gradient-to-br from-gray-400 to-slate-400 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-gray-200">
+        <HeartCrack size={36} className="text-white" />
+      </div>
 
       <div className="animate-fadeIn text-center mb-8">
         <h1 className="text-3xl font-extrabold text-gray-900 mb-2">
@@ -171,7 +177,9 @@ export default function FinalPage() {
       ) : (
         <div className="animate-scaleIn w-full max-w-sm">
           <Card className="text-center">
-            <div className="text-4xl mb-3">💝</div>
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-400 flex items-center justify-center mx-auto mb-3 shadow-md shadow-pink-200">
+            <CheckCircle2 size={28} className="text-white" />
+          </div>
             <h3 className="font-bold text-gray-900 text-lg mb-1">전송 완료!</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               운영진이 상대방에게 전달할게요.<br />
